@@ -8,19 +8,20 @@ import javax.persistence.*;
 public class Alumno extends Persona {
 
     @ManyToOne(
-            fetch = FetchType.LAZY,
+            optional = true,
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
-            }
+            },
+            fetch = FetchType.LAZY
     )
-    @JoinTable(name = "profesor_carrera")
+    @JoinColumn(name = "carrera_id")
     private Carrera carrera;
 
     public Alumno() {
     }
 
-    public Alumno(String id, String nombre, String apellido, String dni, Direccion direccion) {
+    public Alumno(Integer id, String nombre, String apellido, String dni, Direccion direccion) {
         super(id, nombre, apellido, dni, direccion);
     }
 

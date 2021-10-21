@@ -34,8 +34,9 @@ public class Aula implements Serializable {
                     CascadeType.MERGE
             }
     )
-    @JoinColumn(name = "pabellon_id",
-                foreignKey = @ForeignKey(name = "FK_PABELLON_ID")
+    @JoinColumn(
+            name = "pabellon_id",
+            foreignKey = @ForeignKey(name = "FK_PABELLON_ID")
     )
     private Pabellon pabellon;
 

@@ -30,7 +30,7 @@ public class Carrera implements Serializable {
     )
     private Set<Alumno> alumnos;
 
-    @OneToMany(
+    @ManyToMany(
             mappedBy = "carreras",
             fetch = FetchType.LAZY
     )

@@ -29,7 +29,7 @@ public class Profesor extends Persona{
     public Profesor() {
     }
 
-    public Profesor(String id, String nombre, String apellido, String dni, Direccion direccion, BigDecimal sueldo) {
+    public Profesor(Integer id, String nombre, String apellido, String dni, Direccion direccion, BigDecimal sueldo) {
         super(id, nombre, apellido, dni, direccion);
         this.sueldo = sueldo;
     }

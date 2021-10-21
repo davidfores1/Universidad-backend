@@ -21,13 +21,14 @@ public class Empleado extends Persona{
     )
     @JoinColumn(
             name = "pabellon_id",
-            foreignKey = @ForeignKey(name = "FK_PABELLON_ID")
+            foreignKey = @ForeignKey(name = "F_PABELLON_ID")
     )
     private Pabellon pabellon;
+
     public Empleado() {
     }
 
-    public Empleado(String id, String nombre, String apellido, String dni, Direccion direccion, BigDecimal sueldo, TipoEmpleado tipoEmpleado) {
+    public Empleado(Integer id, String nombre, String apellido, String dni, Direccion direccion, BigDecimal sueldo, TipoEmpleado tipoEmpleado) {
         super(id, nombre, apellido, dni, direccion);
         this.sueldo = sueldo;
         this.tipoEmpleado = tipoEmpleado;
