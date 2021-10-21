@@ -1,17 +1,40 @@
-package com.springsimplespasos.universidad.universidadbackend.modelo.entidades.enumeradores;
+package com.springsimplespasos.universidad.universidadbackend.modelo.entidades;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import java.util.Set;
 
+@Entity
+@Table(name = "carreras")
 public class Carrera implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(nullable = false, unique = true, length = 80)
     private String nombre;
+    @Column(name = "cantidad_materias")
     private Integer cantidadMaterias;
+    @Column(name = "cantidad_años")
     private Integer cantidadAnios;
+    @Column(name = "fecha_alta")
     private LocalDateTime fechaAlta;
+    @Column(name = "fecha_modificacion")
     private LocalDateTime fechaModificacion;
+
+    @OneToMany(
+            mappedBy = "carrera",
+            fetch = FetchType.LAZY
+    )
+    private Set<Alumno> alumnos;
+
+    @OneToMany(
+            mappedBy = "carreras",
+            fetch = FetchType.LAZY
+    )
+    private Set<Profesor>profesores;
 
     public Carrera() {
     }
@@ -70,6 +93,34 @@ public class Carrera implements Serializable {
     public void setFechaModificacion(LocalDateTime fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
+
+    public Set<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(Set<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
+
+    public Set<Profesor> getProfesores() {
+        return profesores;
+    }
+
+    public void setProfesores(Set<Profesor> profesores) {
+        this.profesores = profesores;
+    }
+
+    @PrePersist
+    private void antesDePersistir(){
+        this.fechaAlta = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    private void antesDeUpdate(){
+
+        this.fechaModificacion = LocalDateTime.now();
+    }
+
 
     @Override
     public String toString() {
