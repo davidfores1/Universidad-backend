@@ -4,9 +4,6 @@ import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Ca
 
 import java.util.Optional;
 
-public interface CarreraDAO {
-    Optional<Carrera>finById(Integer id);
-    Carrera save(Carrera carrera);
-    Iterable<Carrera> findAll();
-    void deleteById(Integer id);
+public interface CarreraDAO extends GenericoDAO<Carrera> {
+
 }

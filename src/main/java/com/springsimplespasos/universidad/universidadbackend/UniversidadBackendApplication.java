@@ -31,10 +31,10 @@ public class UniversidadBackendApplication {
 			/*Direccion direccion = new Direccion("cra 20A", "510-022", "1623", "Valle del Cauca", "","Centro");
 			Persona alumno = new Alumno(null,"Darly", "Gomez","654321", direccion);
 			Persona save = servicio.save(alumno);
-			System.out.println(save.toString());*/
+			System.out.println(save.toString());
 
 			List<Persona> alumnos = (List<Persona>) servicio.findAll();
-			alumnos.forEach(System.out::println);
+			alumnos.forEach(System.out::println);*/
 		};
 	}
 

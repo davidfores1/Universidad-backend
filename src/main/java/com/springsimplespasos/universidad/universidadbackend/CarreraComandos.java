@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class CarreraComandos implements CommandLineRunner {
 
@@ -18,6 +20,14 @@ public class CarreraComandos implements CommandLineRunner {
         /*Carrera ingSistemas = new Carrera(null, "Ingeneria en sistemas", 50,5);
         Carrera save = servicio.save(ingSistemas);
         System.out.println(save.toString());*/
+
+        Optional<Carrera> OCarrera = servicio.finById(1);
+        if (OCarrera.isPresent()){
+            Carrera carrera = OCarrera.get();
+            System.out.println(carrera.toString());
+        }else {
+            System.out.println("Carrera no encontrada");
+        }
 
     }
 }
