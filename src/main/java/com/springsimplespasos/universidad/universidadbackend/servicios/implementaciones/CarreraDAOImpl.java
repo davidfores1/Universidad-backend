@@ -17,4 +17,21 @@ public class CarreraDAOImpl extends GenedricoDAOImpl<Carrera, CarreraRepository>
         super(repository);
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<Carrera> findCarreraByNombreContains(String nombre) {
+        return repository.findCarreraByNombreContains(nombre);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<Carrera> findCarreraByNombreContainsIgnoreCase(String nombre) {
+        return repository.findCarreraByNombreContainsIgnoreCase(nombre);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<Carrera> findCarreraByCantidadAniosAfter(Integer cantidadAnios) {
+        return repository.findCarreraByCantidadAniosAfter(cantidadAnios);
+    }
 }
