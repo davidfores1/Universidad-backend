@@ -1,4 +1,4 @@
-package com.springsimplespasos.universidad.universidadbackend;
+/*package com.springsimplespasos.universidad.universidadbackend;
 
 import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Carrera;
 import com.springsimplespasos.universidad.universidadbackend.servicios.contratos.CarreraDAO;
@@ -18,7 +18,7 @@ public class CarreraComandos implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-/*      Carrera ingSistemas = new Carrera(null,"Ingeneria de Sistemas",40,8);
+*//*      Carrera ingSistemas = new Carrera(null,"Ingeneria de Sistemas",40,8);
         Carrera ingIndustrial = new Carrera(null,"Ingeneria Industrial",50,5);
         Carrera ingAlimentos = new Carrera(null,"Ingeneria de Alimentos",60,5);
         Carrera ingElectronica = new Carrera(null,"Ingeneria Electronica",30,7);
@@ -28,15 +28,15 @@ public class CarreraComandos implements CommandLineRunner {
         servicio.save(ingIndustrial);
         servicio.save(ingAlimentos);
         servicio.save(ingElectronica);
-        servicio.save(licRecursos);*/
+        servicio.save(licRecursos);*//*
 
-/*        List<Carrera> carreras = (List<Carrera>) servicio.findCarreraByNombreContains("sistemas");
+*//*        List<Carrera> carreras = (List<Carrera>) servicio.findCarreraByNombreContains("sistemas");
         carreras.forEach(System.out::println);
 
         List<Carrera> carreras1 = (List<Carrera>) servicio.findCarreraByNombreContainsIgnoreCase("SISTEMAS");
         carreras1.forEach(System.out::println);
 
         List<Carrera> carreras2 = (List<Carrera>) servicio.findCarreraByCantidadAniosAfter(5);
-        carreras2.forEach(System.out::println);*/
+        carreras2.forEach(System.out::println);*//*
     }
-}
+}*/

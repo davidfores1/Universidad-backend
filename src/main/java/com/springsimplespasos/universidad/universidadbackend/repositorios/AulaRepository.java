@@ -1,3 +1,4 @@
+/*
 package com.springsimplespasos.universidad.universidadbackend.repositorios;
 
 import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Aula;
@@ -17,3 +18,4 @@ public interface AulaRepository extends CrudRepository {
     Iterable<Aula>buscarAulasPabellon(String nombre_pabellon);
 
 }
+*/

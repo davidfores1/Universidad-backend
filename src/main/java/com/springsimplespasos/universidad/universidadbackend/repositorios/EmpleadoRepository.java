@@ -1,3 +1,4 @@
+/*
 package com.springsimplespasos.universidad.universidadbackend.repositorios;
 
 import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Persona;
@@ -12,3 +13,4 @@ public interface EmpleadoRepository extends PersonaRepository{
     Iterable<Persona> findEmpleadoByTipoEmpleado(TipoEmpleado tipoEmpleado);
 
 }
+*/

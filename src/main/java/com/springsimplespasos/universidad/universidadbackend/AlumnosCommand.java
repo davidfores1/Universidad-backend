@@ -1,4 +1,4 @@
-package com.springsimplespasos.universidad.universidadbackend;
+/*package com.springsimplespasos.universidad.universidadbackend;
 
 import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Alumno;
 import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Carrera;
@@ -26,25 +26,25 @@ public class AlumnosCommand implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-/*        Optional<Carrera> ingSistemas = carreraDAO.finById(2);
+*//*        Optional<Carrera> ingSistemas = carreraDAO.finById(2);
 
         Iterable<Persona> alumnos = personaDAO.findAll();
         alumnos.forEach(alumno -> ((Alumno)alumno).setCarrera(ingSistemas.get()));
-        alumnos.forEach(alumno -> personaDAO.save(alumno));*/
+        alumnos.forEach(alumno -> personaDAO.save(alumno));*//*
 
-/*    Optional<Persona> alumno_1 = personaDAO.finById(1);*/
+*//*    Optional<Persona> alumno_1 = personaDAO.finById(1);*//*
 
-/*    Optional<Persona> personaNomApe = personaDAO.buscarNombreYApellido(alumno_1.get().getNombre(), alumno_1.get().getApellido());
+*//*    Optional<Persona> personaNomApe = personaDAO.buscarNombreYApellido(alumno_1.get().getNombre(), alumno_1.get().getApellido());
         System.out.println(personaNomApe.toString());
 
     Optional<Persona> personaDni = personaDAO.buscarPorDni(alumno_1.get().getDni());
         System.out.println(personaDni.toString());
 
     Iterable<Persona> personasApellido = personaDAO.buscarPersonaPorApellido(alumno_1.get().getApellido());
-     personasApellido.forEach(System.out::println);*/
+     personasApellido.forEach(System.out::println);*//*
 
         Optional<Carrera> ingSistemas = carreraDAO.finById(2);
         Iterable<Persona> alumnoCarrera = ((AlumnoDAO) personaDAO).buscarAlumnoPorNombreCarrera(ingSistemas.get().getNombre());
         alumnoCarrera.forEach(System.out::println);
     }
-}
+}*/
