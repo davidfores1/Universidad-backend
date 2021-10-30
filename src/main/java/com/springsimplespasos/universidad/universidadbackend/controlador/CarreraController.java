@@ -17,6 +17,7 @@ public class CarreraController {
 
     @Autowired
     public CarreraController(CarreraDAO carreraDAO) {
+
         this.carreraDAO = carreraDAO;
     }
 
@@ -41,6 +42,32 @@ public class CarreraController {
 
     @PostMapping
     public Carrera altaCarrera(@RequestBody Carrera carrera){
+        if(carrera.getCantidadAnios()<0){
+            throw new BadRequestException("El campo cantidad de años no puede ser negativo");
+        }
+        if (carrera.getCantidadMaterias()<0){
+            throw new BadRequestException("El campo cantidad de materias no puede ser negativo");
+        }
         return carreraDAO.save(carrera);
+    }
+
+    @PutMapping("/{id}")
+    public Carrera actualizarCarrera(@PathVariable Integer id, @RequestBody Carrera carrera){
+
+        Carrera carreraUpdate = null;
+        Optional<Carrera> oCarrera = carreraDAO.finById(id);
+        if(!oCarrera.isPresent()){
+            throw new BadRequestException(String.format("La carrera con id %d no existe", id));
+        }
+
+        carreraUpdate = oCarrera.get();
+        carreraUpdate.setCantidadAnios(carrera.getCantidadAnios());
+        carreraUpdate.setCantidadMaterias(carrera.getCantidadMaterias());
+        return carreraDAO.save(carreraUpdate);
+    }
+
+    @DeleteMapping("{id}")
+    public void eliminarCarrera(@PathVariable Integer id){
+        carreraDAO.deleteById(id);
     }
 }
