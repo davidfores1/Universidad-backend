@@ -15,6 +15,7 @@ public class AlumnoDAOImpl extends PersonaDAOImpl implements AlumnoDAO {
     @Autowired
 
     public AlumnoDAOImpl(@Qualifier("repositorioAlumnos")PersonaRepository repository) {
+
         super(repository);
     }
 
