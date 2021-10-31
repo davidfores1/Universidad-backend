@@ -1,8 +1,10 @@
 package com.springsimplespasos.universidad.universidadbackend.controlador;
 
 import com.springsimplespasos.universidad.universidadbackend.exception.BadRequestException;
+import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Alumno;
+import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Carrera;
 import com.springsimplespasos.universidad.universidadbackend.modelo.entidades.Persona;
-import com.springsimplespasos.universidad.universidadbackend.servicios.contratos.AlumnoDAO;
+import com.springsimplespasos.universidad.universidadbackend.servicios.contratos.CarreraDAO;
 import com.springsimplespasos.universidad.universidadbackend.servicios.contratos.PersonaDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,10 +18,12 @@ import java.util.Optional;
 public class AlumnoController {
 
     private PersonaDAO alumnoDAO;
+    private CarreraDAO carreraDAO;
 
     @Autowired
-    public AlumnoController(@Qualifier("alumnoDAOImpl") PersonaDAO alumnoDAO) {
+    public AlumnoController(@Qualifier("alumnoDAOImpl") PersonaDAO alumnoDAO, CarreraDAO carreraDAO) {
         this.alumnoDAO = alumnoDAO;
+        this.carreraDAO = carreraDAO;
     }
     @GetMapping
     public  List<Persona> obtenerTodos(){
@@ -66,4 +70,20 @@ public class AlumnoController {
         alumnoDAO.deleteById(id);
     }
 
+    @PutMapping("/{idAlumno}/carrera/{idCarrera}")
+    public Persona asignarCarreraAlumno(@PathVariable Integer idAlumno,@PathVariable Integer idCarrera){
+        Optional<Persona> oAlumno = alumnoDAO.finById(idAlumno);
+        if(!oAlumno.isPresent()){
+            throw new BadRequestException(String.format("Alumno con id %d no existe", idAlumno));
+        }
+        Optional<Carrera> oCarrera = carreraDAO.finById(idCarrera);
+        if(!oCarrera.isPresent()){
+            throw new BadRequestException(String.format("Carrera con id %d no existe", idCarrera));
+        }
+        Persona alumno = oAlumno.get();
+        Carrera carrera = oCarrera.get();
+
+        ((Alumno)alumno).setCarrera(carrera);
+        return  alumnoDAO.save(alumno);
+    }
 }
